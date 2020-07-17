@@ -1,6 +1,6 @@
 const search = document.getElementById('search'),
-  // submit = document.getElementById('submit'),
-  // random = document.getElementById('random'),
+  submit = document.getElementById('submit'),
+  random = document.getElementById('random'),
   mealsEl = document.getElementById('meals'),
   resultHeading = document.getElementById('result-heading'),
   single_mealEl = document.getElementById('single-meal');
@@ -40,7 +40,7 @@ function searchMeal(e) {
         }
       });
     // Clear search text
-    // search.value = '';
+    search.value = '';
   } else {
     console.log('Please enter a search term');
   }
@@ -107,7 +107,7 @@ function addMealToDOM(meal) {
 
 // Event listeners
 search.addEventListener('keyup', searchMeal);
-// random.addEventListener('click', getRandomMeal);
+random.addEventListener('click', getRandomMeal);
 
 mealsEl.addEventListener('click', e => {
   const mealInfo = e.path.find(item => {
