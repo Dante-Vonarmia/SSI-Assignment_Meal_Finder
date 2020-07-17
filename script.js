@@ -20,6 +20,7 @@ function searchMeal(e) {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         resultHeading.innerHTML = `<h2>Search results for '${term}':</h2>`;
 
         if (data.meals === null) {
@@ -42,7 +43,7 @@ function searchMeal(e) {
     // Clear search text
     search.value = '';
   } else {
-    console.log('Please enter a search term');
+    alert('Please enter a search term');
   }
 }
 
@@ -106,7 +107,7 @@ function addMealToDOM(meal) {
 }
 
 // Event listeners
-search.addEventListener('keyup', searchMeal);
+submit.addEventListener('submit', searchMeal);
 random.addEventListener('click', getRandomMeal);
 
 mealsEl.addEventListener('click', e => {
@@ -123,8 +124,3 @@ mealsEl.addEventListener('click', e => {
     getMealById(mealID);
   }
 });
-
-// run the function 3 times 1 second
-// multiple search, last time accessible only
-// 
-// write a HOF to call these
